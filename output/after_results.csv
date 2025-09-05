@@ -1,0 +1,3 @@
+test_name,description,execution_time_seconds,rows_processed,timestamp
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.0028028488159179688,0,2025-09-06 01:08:25
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.0016486644744873047,958,2025-09-06 01:08:25
