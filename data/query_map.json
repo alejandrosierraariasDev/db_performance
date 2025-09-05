@@ -1,0 +1,14 @@
+[
+  {
+    "test_name": "Reporte de Ventas Mensual",
+    "description": "Calcula el total de ventas por categoría para un período específico.",
+    "before": "reporte_ventas.sql",
+    "after": "reporte_ventas_opt.sql"
+  },
+  {
+    "test_name": "Inventario de Películas",
+    "description": "Cuenta el número total de copias de cada película en el inventario.",
+    "before": "inventario_productos.sql",
+    "after": "inventario_productos_opt.sql"
+  }
+]
