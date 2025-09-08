@@ -1,3 +1,3 @@
 test_name,description,execution_time_seconds,rows_processed,timestamp,used_indexes,avg_execution_time,trend,performance
-Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.010370016098022461,0,2025-09-08 18:29:37,"film_category_pkey, film_pkey, idx_unq_rental_rental_date_inventory_id_customer_id, inventory_pkey, category_pkey",0.02724022865295404,0.0108,better_than_average
-Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.006779670715332031,958,2025-09-08 18:29:37,Ninguno,0.1031784057617187,0.0463,better_than_average
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.01047372817993164,0,2025-09-08 18:55:43,"idx_unq_rental_rental_date_inventory_id_customer_id, inventory_pkey, film_category_pkey, category_pkey, film_pkey",0.0200 seg,→ Estable (0.0063),🟢 Mejor que el promedio
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.0068585872650146484,958,2025-09-08 18:55:43,Ninguno,0.0914 seg,→ Estable (0.0431),🟢 Mejor que el promedio
