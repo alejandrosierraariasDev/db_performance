@@ -1,0 +1,17 @@
+test_name,description,execution_time_seconds,rows_processed,timestamp,used_indexes,avg_execution_time,trend,performance
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.0389351844787597,16,2025-09-08 18:24:03,Ninguno,,,
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.2416865825653076,1000,2025-09-08 18:24:03,Ninguno,,,
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.0044372081756591,0,2025-09-08 18:24:07,"film_category_pkey, inventory_pkey, category_pkey, film_pkey, idx_unq_rental_rental_date_inventory_id_customer_id",,,
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.0021414756774902,958,2025-09-08 18:24:07,Ninguno,,,
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.0533986091613769,16,2025-09-08 18:29:16,Ninguno,0.0216861963272094,0.0345,worse_than_average
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.1505806446075439,1000,2025-09-08 18:29:16,Ninguno,0.1219140291213989,0.2395,worse_than_average
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.0273118019104003,16,2025-09-08 18:29:18,Ninguno,0.0322570006052652,-0.0072,normal
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.1808350086212158,1000,2025-09-08 18:29:18,Ninguno,0.1314695676167805,0.0456,worse_than_average
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.0381979942321777,16,2025-09-08 18:29:20,Ninguno,0.031020700931549,-0.0014,worse_than_average
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.1713788509368896,1000,2025-09-08 18:29:20,Ninguno,0.1438109278678893,0.0034,normal
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.0087373256683349,0,2025-09-08 18:29:33,"film_category_pkey, category_pkey, film_pkey, idx_unq_rental_rental_date_inventory_id_customer_id, inventory_pkey",0.0324561595916747,-0.0021,better_than_average
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.0071513652801513,958,2025-09-08 18:29:33,Ninguno,0.1493245124816894,-0.0038,better_than_average
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.0085554122924804,0,2025-09-08 18:29:35,"category_pkey, idx_unq_rental_rental_date_inventory_id_customer_id, film_pkey, inventory_pkey, film_category_pkey",0.0264165878295897,0.0007,better_than_average
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.0059461593627929,958,2025-09-08 18:29:35,Ninguno,0.1024174690246581,-0.0031,better_than_average
+Reporte de Ventas Mensual,Calcula el total de ventas por categoría para un período específico.,0.010370016098022461,0,2025-09-08 18:29:37,"film_category_pkey, film_pkey, idx_unq_rental_rental_date_inventory_id_customer_id, inventory_pkey, category_pkey",0.02724022865295404,0.0108,better_than_average
+Inventario de Películas,Cuenta el número total de copias de cada película en el inventario.,0.006779670715332031,958,2025-09-08 18:29:37,Ninguno,0.1031784057617187,0.0463,better_than_average
