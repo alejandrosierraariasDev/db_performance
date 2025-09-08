@@ -70,42 +70,51 @@ def load_historical_data():
     return historical_data
 
 def calculate_trends(test_name, current_execution_time, historical_data):
-    """Calcula tendencias basadas en datos históricos"""
     if test_name not in historical_data or len(historical_data[test_name]) < 2:
-        return None, None, None
+        return 'Datos insuficientes', 'Datos insuficientes', 'Datos insuficientes'
     
     history = historical_data[test_name]
-    # Tomar las últimas 5 ejecuciones para la tendencia
     recent_runs = sorted(history, key=lambda x: x['timestamp'], reverse=True)[:5]
     
     if len(recent_runs) < 2:
-        return None, None, None
+        return 'Datos insuficientes', 'Datos insuficientes', 'Datos insuficientes'
     
-    # Calcular tiempo promedio histórico
-    avg_time = sum(r['execution_time_seconds'] for r in recent_runs) / len(recent_runs)
+    try:
+        avg_time = sum(float(r['execution_time_seconds']) for r in recent_runs) / len(recent_runs)
+    except (TypeError, ValueError):
+        return 'Datos insuficientes', 'Datos insuficientes', 'Datos insuficientes'
     
-    # Calcular tendencia (regresión lineal simple)
-    times = [r['execution_time_seconds'] for r in recent_runs]
-    x = range(len(times))
-    n = len(times)
-    if n > 1:
-        x_mean = sum(x) / n
-        y_mean = sum(times) / n
-        numerator = sum((x[i] - x_mean) * (times[i] - y_mean) for i in range(n))
-        denominator = sum((x[i] - x_mean) ** 2 for i in range(n))
-        trend = numerator / denominator if denominator != 0 else 0
-    else:
-        trend = 0
-    
-    # Comparar con la ejecución actual
-    if current_execution_time > avg_time * 1.2:
-        performance = 'worse_than_average'
-    elif current_execution_time < avg_time * 0.8:
-        performance = 'better_than_average'
-    else:
-        performance = 'normal'
-    
-    return avg_time, trend, performance
+    try:
+        times = [float(r['execution_time_seconds']) for r in recent_runs]
+        x = range(len(times))
+        n = len(times)
+        if n > 1:
+            x_mean = sum(x) / n
+            y_mean = sum(times) / n
+            numerator = sum((x[i] - x_mean) * (times[i] - y_mean) for i in range(n))
+            denominator = sum((x[i] - x_mean) ** 2 for i in range(n))
+            trend = numerator / denominator if denominator != 0 else 0
+        else:
+            trend = 0
+        
+        if trend > 0.1:
+            trend_str = f"↑ Aumentando ({trend:.4f})"
+        elif trend < -0.1:
+            trend_str = f"↓ Disminuyendo ({trend:.4f})"
+        else:
+            trend_str = f"→ Estable ({trend:.4f})"
+        
+        if current_execution_time > avg_time * 1.2:
+            performance = '🔴 Peor que el promedio'
+        elif current_execution_time < avg_time * 0.8:
+            performance = '🟢 Mejor que el promedio'
+        else:
+            performance = '🟡 Dentro del rango normal'
+        
+        return f"{avg_time:.4f} seg", trend_str, performance
+    except Exception as e:
+        print(f"Error calculando tendencias: {e}")
+        return 'Error en cálculo', 'Error en cálculo', 'Error en cálculo'
 
 def run_test(phase):
     conn = connect_db()
@@ -144,10 +153,8 @@ def run_test(phase):
 
         end_time = time.time()
         execution_time = end_time - start_time
-        # Obtener información de índices
         used_indexes = get_index_usage(conn, query)
         
-        # Calcular tendencias
         avg_time, trend, performance = calculate_trends(test_name, execution_time, historical_data)
         
         results.append({
@@ -157,9 +164,9 @@ def run_test(phase):
             'rows_processed': rows_processed,
             'timestamp': test_timestamp,
             'used_indexes': ', '.join(used_indexes) if used_indexes else 'Ninguno',
-            'avg_execution_time': avg_time if avg_time is not None else 'N/A',
-            'trend': f"{trend:.4f}" if trend is not None else 'N/A',
-            'performance': performance if performance is not None else 'N/A'
+            'avg_execution_time': avg_time,
+            'trend': trend,
+            'performance': performance
         })
         print(f"'{test_name}' completada en {execution_time:.4f} segundos.\n")
 

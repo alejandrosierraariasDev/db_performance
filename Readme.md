@@ -56,6 +56,23 @@ El proyecto utiliza **Python, psycopg2, pandas y matplotlib** para:
 
 ## 📂 Estructura del Proyecto
 
+### Directorio de Salida (`/output`)
+El directorio `output/` contiene todos los resultados generados por las pruebas de rendimiento:
+
+- `before_results.csv`: Resultados de las pruebas ejecutadas antes de las mejoras
+- `after_results.csv`: Resultados después de implementar las optimizaciones
+- `historical_results.csv`: Historial completo de todas las ejecuciones para análisis de tendencias
+- `performance_comparison.png`: Gráfico comparativo visual de los resultados
+
+#### Ejemplo de Gráfico de Comparación
+
+<div align="center">
+  <img src="output/performance_comparison.png" alt="Comparativa de Rendimiento" width="600"/>
+  <p><em>Figura 1: Comparación visual del rendimiento antes y después de las mejoras</em></p>
+</div>
+
+Cada vez que ejecutes las pruebas, estos archivos se actualizarán automáticamente, permitiéndote hacer un seguimiento del rendimiento a lo largo del tiempo.
+
 ```
 /proyecto_db_performance
 ├── requirements.txt             # Dependencias de Python
@@ -124,6 +141,24 @@ python -m scripts.report_generator
 ```
 
 ### 📊 Interpretación de Resultados
+
+Los archivos generados en el directorio `output/` te permitirán analizar:
+
+1. **Resultados Detallados** (`before_results.csv` y `after_results.csv`):
+   - Tiempos de ejecución de cada consulta
+   - Número de filas procesadas
+   - Índices utilizados
+   - Tendencias de rendimiento
+
+2. **Análisis Histórico** (`historical_results.csv`):
+   - Evolución del rendimiento a lo largo del tiempo
+   - Identificación de patrones o regresiones
+   - Comparativa entre múltiples ciclos de optimización
+
+3. **Visualización Gráfica** (`performance_comparison.png`):
+   - Comparación visual entre el estado inicial y el optimizado
+   - Identificación rápida de mejoras o problemas
+   - Gráfico generado automáticamente con cada ejecución
 
 El informe generado incluirá:
 - Comparación de tiempos de ejecución
