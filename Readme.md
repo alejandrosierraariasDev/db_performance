@@ -1,4 +1,4 @@
-# 🚀 Análisis de Rendimiento de Bases de Datos - Antes y Después de Mejoras
+# 🚀 Database Performance Analysis - Before and After Improvements
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-✓-green.svg)
@@ -6,168 +6,168 @@
 
 ---
 
-## 📌 Propósito
-Este proyecto permite realizar un **análisis comparativo** del rendimiento de una base de datos **PostgreSQL** antes y después de implementar mejoras. Está diseñado para:
+## 📌 Purpose
+This project runs a **comparative analysis** of a **PostgreSQL** database's performance before and after improvements. It is designed to:
 
-- Medir el impacto de las optimizaciones en consultas críticas
-- Identificar cuellos de botella en el rendimiento
-- Validar la efectividad de los cambios realizados
-- Generar informes detallados para la toma de decisiones
+- Measure the impact of optimizations on critical queries
+- Identify performance bottlenecks
+- Validate that the changes actually work
+- Produce detailed reports for decision-making
 
-## 📋 Resumen Técnico
-El proyecto utiliza **Python, psycopg2, pandas y matplotlib** para:
-1. Ejecutar consultas SQL almacenadas en archivos
-2. Medir tiempos de ejecución y uso de recursos
-3. Analizar índices utilizados en cada consulta
-4. Generar informes comparativos con visualizaciones
-5. Seguir tendencias de rendimiento a lo largo del tiempo
+## 📋 Technical summary
+The project uses **Python, psycopg2, pandas and matplotlib** to:
+1. Run SQL queries stored in files
+2. Measure execution time and resource usage
+3. Analyze the indexes used by each query
+4. Generate comparative reports with charts
+5. Track performance trends over time
 
-👉 El resultado es un **informe detallado** que cuantifica la mejora de rendimiento y proporciona información valiosa para optimizaciones futuras.
-
----
-
-## ✨ Características Clave
-
-### 🔍 Análisis de Consultas
-- Ejecución de consultas SQL almacenadas en archivos
-- Medición precisa de tiempos de ejecución
-- Conteo de filas procesadas
-- Identificación de índices utilizados
-
-### 📈 Análisis Comparativo
-- Comparación lado a lado de métricas antes/después
-- Cálculo de porcentajes de mejora
-- Generación de gráficos comparativos
-- Seguimiento de tendencias temporales
-
-### 📊 Reportes Avanzados
-- Informe detallado en formato Markdown
-- Gráficos de rendimiento comparativo
-- Análisis de uso de índices
-- Tendencias de rendimiento a lo largo del tiempo
-
-### 🛠️ Facilidad de Uso
-- Configuración centralizada
-- Estructura de proyecto clara
-- Código modular y documentado
-- Fácil integración con flujos de trabajo existentes
+👉 The result is a **detailed report** that quantifies the performance gain and informs future optimizations.
 
 ---
 
-## 📂 Estructura del Proyecto
+## ✨ Key features
 
-### Directorio de Salida (`/output`)
-El directorio `output/` contiene todos los resultados generados por las pruebas de rendimiento:
+### 🔍 Query analysis
+- Runs SQL queries stored in files
+- Precise execution-time measurement
+- Row counts
+- Index usage detection
 
-- `before_results.csv`: Resultados de las pruebas ejecutadas antes de las mejoras
-- `after_results.csv`: Resultados después de implementar las optimizaciones
-- `historical_results.csv`: Historial completo de todas las ejecuciones para análisis de tendencias
-- `performance_comparison.png`: Gráfico comparativo visual de los resultados
+### 📈 Comparative analysis
+- Side-by-side before/after metrics
+- Improvement percentages
+- Comparative charts
+- Trend tracking over time
 
-#### Ejemplo de Gráfico de Comparación
+### 📊 Reports
+- Detailed Markdown report
+- Comparative performance charts
+- Index usage analysis
+- Performance trends over time
+
+### 🛠️ Ease of use
+- Centralized configuration
+- Clear project structure
+- Modular, documented code
+- Easy to plug into existing workflows
+
+---
+
+## 📂 Project structure
+
+### Output folder (`/output`)
+The `output/` folder holds every result produced by the performance tests:
+
+- `before_results.csv`: results before the improvements
+- `after_results.csv`: results after the optimizations
+- `historical_results.csv`: full history of every run, for trend analysis
+- `performance_comparison.png`: visual comparison chart
+
+#### Example comparison chart
 
 <div align="center">
-  <img src="output/performance_comparison.png" alt="Comparativa de Rendimiento" width="600"/>
-  <p><em>Figura 1: Comparación visual del rendimiento antes y después de las mejoras</em></p>
+  <img src="output/performance_comparison.png" alt="Performance comparison" width="600"/>
+  <p><em>Figure 1: performance before and after the improvements</em></p>
 </div>
 
-Cada vez que ejecutes las pruebas, estos archivos se actualizarán automáticamente, permitiéndote hacer un seguimiento del rendimiento a lo largo del tiempo.
+These files are updated on every run, so you can track performance over time.
 
 ```
 /proyecto_db_performance
-├── requirements.txt             # Dependencias de Python
+├── requirements.txt             # Python dependencies
 ├── scripts/
-│   ├── config.py               # Configuración de conexión a la BD
-│   ├── performance_test.py     # Script principal de medición
-│   └── report_generator.py     # Generador de informes
-├── queries/                    # Consultas SQL organizadas
-│   ├── antes/                  # Consultas originales (antes de mejoras)
-│   └── despues/                # Consultas optimizadas (después de mejoras)
+│   ├── config.py               # Database connection settings
+│   ├── performance_test.py     # Main measurement script
+│   └── report_generator.py     # Report generator
+├── queries/                    # SQL queries
+│   ├── antes/                  # Original queries (before improvements)
+│   └── despues/                # Optimized queries (after improvements)
 ├── data/
-│   └── query_map.json          # Mapeo de consultas para comparativa
-└── output/                     # Resultados e informes
-    ├── before_results.csv      # Resultados iniciales
-    ├── after_results.csv       # Resultados posteriores
-    ├── historical_results.csv  # Historial de ejecuciones
-    └── performance_comparison.png  # Gráfico comparativo
+│   └── query_map.json          # Query mapping for the comparison
+└── output/                     # Results and reports
+    ├── before_results.csv      # Baseline results
+    ├── after_results.csv       # Post-optimization results
+    ├── historical_results.csv  # Run history
+    └── performance_comparison.png  # Comparison chart
 ```
 
-### Descripción de Archivos Importantes
+### Key files
 
-- **`scripts/performance_test.py`**: 
-  - Ejecuta las consultas SQL y mide su rendimiento
-  - Registra métricas de tiempo, filas procesadas y uso de índices
-  - Almacena resultados en archivos CSV
+- **`scripts/performance_test.py`**:
+  - Runs the SQL queries and measures their performance
+  - Records time, rows processed and index usage
+  - Stores the results in CSV files
 
 - **`scripts/report_generator.py`**:
-  - Genera informes comparativos en formato Markdown
-  - Crea visualizaciones de rendimiento
-  - Analiza tendencias a lo largo del tiempo
+  - Generates comparative Markdown reports
+  - Creates performance charts
+  - Analyzes trends over time
 
 - **`data/query_map.json`**:
-  - Define las consultas a ejecutar y sus metadatos
-  - Mapea consultas "antes" con sus equivalentes "después"
+  - Defines the queries to run and their metadata
+  - Maps each "before" query (`antes`) to its "after" equivalent (`despues`)
 
-## 🚀 Guía de Uso Rápido
+## 🚀 Quick start
 
-### 🔧 Requisitos Previos
-- Python 3.8 o superior
-- PostgreSQL 10 o superior
-- Dependencias del proyecto: `pip install -r requirements.txt`
+### 🔧 Prerequisites
+- Python 3.8 or later
+- PostgreSQL 10 or later
+- Project dependencies: `pip install -r requirements.txt`
 
-### 🔄 Flujo de Trabajo
+### 🔄 Workflow
 
-#### 1️⃣ Fase Inicial: Análisis de Línea Base
+#### 1️⃣ Baseline
 ```bash
-# Ejecutar pruebas en el estado actual (antes de mejoras)
+# Run the tests on the current state (before improvements)
 python -m scripts.performance_test antes
 ```
 
-#### 2️⃣ Fase de Optimización
-- Implementar mejoras en la base de datos
-- Optimizar consultas, índices y configuración
-- Documentar cambios realizados
+#### 2️⃣ Optimization
+- Apply the database improvements
+- Optimize queries, indexes and configuration
+- Document the changes
 
-#### 3️⃣ Fase de Validación
+#### 3️⃣ Validation
 ```bash
-# Ejecutar pruebas después de las mejoras
+# Run the tests after the improvements
 python -m scripts.performance_test despues
 ```
 
-#### 4️⃣ Generación de Informe
+#### 4️⃣ Report
 ```bash
-# Generar informe comparativo
+# Generate the comparative report
 python -m scripts.report_generator
 ```
 
-### 📊 Interpretación de Resultados
+### 📊 Reading the results
 
-Los archivos generados en el directorio `output/` te permitirán analizar:
+The files in `output/` let you analyze:
 
-1. **Resultados Detallados** (`before_results.csv` y `after_results.csv`):
-   - Tiempos de ejecución de cada consulta
-   - Número de filas procesadas
-   - Índices utilizados
-   - Tendencias de rendimiento
+1. **Detailed results** (`before_results.csv` and `after_results.csv`):
+   - Execution time of each query
+   - Rows processed
+   - Indexes used
+   - Performance trends
 
-2. **Análisis Histórico** (`historical_results.csv`):
-   - Evolución del rendimiento a lo largo del tiempo
-   - Identificación de patrones o regresiones
-   - Comparativa entre múltiples ciclos de optimización
+2. **History** (`historical_results.csv`):
+   - How performance evolves over time
+   - Patterns or regressions
+   - Comparison across optimization cycles
 
-3. **Visualización Gráfica** (`performance_comparison.png`):
-   - Comparación visual entre el estado inicial y el optimizado
-   - Identificación rápida de mejoras o problemas
-   - Gráfico generado automáticamente con cada ejecución
+3. **Chart** (`performance_comparison.png`):
+   - Visual comparison between the baseline and the optimized state
+   - Quick view of gains or problems
+   - Regenerated on every run
 
-El informe generado incluirá:
-- Comparación de tiempos de ejecución
-- Análisis de uso de índices
-- Tendencias de rendimiento
-- Recomendaciones de optimización
+The generated report includes:
+- Execution-time comparison
+- Index usage analysis
+- Performance trends
+- Optimization recommendations
 
-### 🔄 Ejecuciones Posteriores
-Cada vez que ejecutes las pruebas, los resultados se agregarán al historial, permitiendo:
-- Seguimiento de tendencias a largo plazo
-- Análisis del impacto de optimizaciones incrementales
-- Identificación de regresiones de rendimiento
+### 🔄 Later runs
+Every run is added to the history, which lets you:
+- Track long-term trends
+- Measure the impact of incremental optimizations
+- Catch performance regressions
