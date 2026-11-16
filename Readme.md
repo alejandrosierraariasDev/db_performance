@@ -114,6 +114,7 @@ These files are updated on every run, so you can track performance over time.
 - Python 3.8 or later
 - PostgreSQL 10 or later
 - Project dependencies: `pip install -r requirements.txt`
+- Database connection via environment variables: `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PORT`
 
 ### 🔄 Workflow
 
